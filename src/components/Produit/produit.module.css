@@ -1,0 +1,11 @@
+.produit {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #555;
+    padding: 20px;
+}
+
+.produit button {
+    background-color: black;
+    color: white;
+}
