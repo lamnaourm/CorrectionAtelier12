@@ -1,0 +1,16 @@
+.header {
+    background-color: black;
+    color: white;
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.panier {
+    background-color: darkgreen;
+    color: white;
+    padding: 10px;
+}

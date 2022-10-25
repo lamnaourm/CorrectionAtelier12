@@ -8,7 +8,7 @@ const Produit = (props) => {
             <h1>{props.product.title}</h1>
             <p>{props.product.description}</p>
             <h3>Prix : {props.product.price} DH</h3>
-            <button>Ajouter au panier</button>
+            <button onClick={props.addtopanier}>Ajouter au panier</button>
         </div>
     );
 }

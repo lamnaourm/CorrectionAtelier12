@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Header from "../Header/Header";
 import Produit from "../Produit/Produit";
 import styles from "./produits.module.css";
 
 const Produits = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [panier, setPanier] = useState([]);
   const [catId, setCatId] = useState('0');
 
   useEffect(() => {
@@ -29,8 +31,15 @@ const Produits = () => {
 
     getData().then((products) => setProducts(products));
   }, [catId]);
+
+  const somme = () => {
+    let som = 0;
+    panier.forEach(item => som += item.price);
+    return som;
+  }
   return (
     <div className={styles.produits}>
+      <Header count={panier.length} total={somme()}/>
       <select value={catId} onChange={(e) => setCatId(parseInt(e.target.value))}>
         <option value={0}>Tous les produits</option>
         {categories.map((item, index) => (
@@ -42,7 +51,7 @@ const Produits = () => {
 
       <div className={styles.list}>
         {products.map((item) => (
-          <Produit product={item} />
+          <Produit key={item.id} product={item} addtopanier={() => setPanier([...panier, item])}/>
         ))}
       </div>
     </div>
