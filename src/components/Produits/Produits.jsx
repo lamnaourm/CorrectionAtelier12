@@ -30,7 +30,7 @@ const Produits = () => {
     getData().then((products) => setProducts(products));
   }, [catId]);
   return (
-    <div>
+    <div className={styles.produits}>
       <select value={catId} onChange={(e) => setCatId(parseInt(e.target.value))}>
         <option value={0}>Tous les produits</option>
         {categories.map((item, index) => (
